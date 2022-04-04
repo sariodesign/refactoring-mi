@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 // Create keyframes
@@ -27,15 +27,19 @@ const slideOut = keyframes `
 const NavContainer = styled.div `
 
     nav {
+        align-items: center;
         animation: none;
+        background-color: rgba(0,0,0,.9);
         display: flex;
         flex-direction: column;
+        height: 100vh;
+        padding: 40px 0;
         position: fixed;
         right: 0;
         top: 0;
         transform: translateX(100%);
         transition: transform .35s cubic-bezier(1.000, 0.185, 0.645, 0.805);
-        width: 50%;
+        width: 90%;
         z-index: 1;
 
         &[data-open="true"] {
@@ -56,7 +60,7 @@ const NavContainer = styled.div `
     }
 
     a {
-        color: #333;
+        color: #fff;
         font-family: 'Oswald';
         font-weight: 700;
         margin-bottom: 8px;
@@ -89,7 +93,6 @@ const Opener = (props) => {
         background-color: #333;
         border: 0;
         border-radius: 50%;
-        box-shadow: 0 0 2px 2px #333;
         bottom: 32px;
         cursor: pointer;
         display: flex;
@@ -97,11 +100,12 @@ const Opener = (props) => {
         justify-content: center;
         position: fixed;
         right: 32px;
+        transition: all .25s ease-in-out;
         width: 40px;
         z-index: 2;
 
         span {
-            background-color: #fff;
+            background-color: ${props => props.active ? "#333" : "#fff"};
             height: 2px;
             pointer-events: none;
             position: relative;
@@ -114,13 +118,15 @@ const Opener = (props) => {
                 height:100%;
                 width: 100%;
                 position: absolute;
-                top: ${props => props.active ? "-6px" : "0px"};
+                top: ${props => props.active ? "0px" : "-6px"};
+                transform: ${props => props.active ? "rotate(45deg)" : "rotate(0)"};
                 left: 0;
                 transition: all .25s ease-in-out;
             }
 
             &:after {
-                top: ${props => props.active ? "6px" : "0px"}
+                top: ${props => props.active ? "0px" : "6px"};
+                transform: ${props => props.active ? "rotate(-45deg)" : "rotate(0)"};
             }
         }
 
@@ -129,7 +135,7 @@ const Opener = (props) => {
         }`
 
     return (
-        <ButtonOpener onClick={props.handler} active={open}>
+        <ButtonOpener onClick={props.handler} active={props.active}>
             <span></span>
         </ButtonOpener>
     )
@@ -137,9 +143,10 @@ const Opener = (props) => {
 
 const Nav = () => {
     const [open, setOpen] = useState(null)
+    const [active, activeState] = useState(null)
     const openClose = (e) => {
         setOpen(current => !current)
-        activeState()
+        activeState(current => !current)
     }
 
     const links = [
@@ -155,7 +162,7 @@ const Nav = () => {
     );
     return (
         <NavContainer>
-            <Opener handler={ openClose } open={ false }/>
+            <Opener handler={ openClose } active={ active }/>
             <nav data-open={ open }>{routes}</nav>
         </NavContainer>
     );
