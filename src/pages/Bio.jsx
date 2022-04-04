@@ -1,17 +1,22 @@
 import BioData from '../data/bio/Bio'
-import Nav from '../components/Nav'
+import Header from '../components/Header'
 import BioRow from '../components/BioRow'
 import Footer from '../components/Footer'
 
 const Bio = () => {
 
-    const content = BioData.map((item,index) => 
+    let language = window.navigator.language
+    console.log('Language',language)
+
+    console.log('BioData', BioData)
+
+    const content = BioData[1].english.map((item,index) => 
         <BioRow key={index} year={item.year} month={item.month} paragraphs={item.paragraphs}/>
     )
 
     return (
         <>
-            <Nav />
+            <Header />
             <h1>Bio</h1>
             {content}
             <Footer/>

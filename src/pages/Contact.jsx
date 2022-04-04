@@ -1,10 +1,10 @@
-import Nav from '../components/Nav'
+import Header from '../components/Nav'
 import Footer from '../components/Footer'
 
 const Contact = () => {
     return (
         <>
-            <Nav />
+            <Header />
             <h1>Contact</h1>
             <Footer/>
         </>
