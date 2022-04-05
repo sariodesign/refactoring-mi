@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const LayoutContainer = styled.div `
-    padding: 0 16px;
+    padding: 32px 16px;
 `
 
 const Layout = (props) => {

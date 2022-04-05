@@ -1,16 +1,23 @@
 import { useState } from 'react';
-import BioData from '../data/bio/Bio'
+import Translator from '../components/Translator';
+import BioData from '../data/bio/Bio';
 import Layout from '../components/Layout';
 import Header from '../components/Header'
 import BioRow from '../components/BioRow'
 import Footer from '../components/Footer'
 
-const Bio = () => {
-    const lang = window.navigator.language
-    const [currentLanguage, setLanguage] = useState('en-EN')
+const Bio = (props) => {
+    const [currentLanguage, setLanguage] = useState(props.lang)
+    const [title, setTitle] = useState(() => currentLanguage === 'it-IT' ? 'Biografia' : 'Biography');
+
     const changeLanguage = () => {
-        console.log(lang)
-        //if(lang === 'it-IT')
+        if(currentLanguage === 'it-IT'){
+            setLanguage('en-EN')
+            setTitle('Biography')
+        } else {
+            setLanguage('it-IT')
+            setTitle('Biografia')
+        }
     }
 
     const content = BioData[currentLanguage].map((item,index) => 
@@ -21,7 +28,8 @@ const Bio = () => {
         <>
             <Header />
             <Layout>
-                <h1>Bio</h1>
+                <Translator lang={currentLanguage} handler={changeLanguage} />
+                <h1>{title}</h1>
                 {content}
             </Layout>
             <Footer/>

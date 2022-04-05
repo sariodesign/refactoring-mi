@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Translator from './Translator'
 import Nav from './Nav'
 
 const HeaderContainer = styled.header`
@@ -22,7 +21,6 @@ const Header = () => {
     return (
         <HeaderContainer>
             <HeaderLogo>Marco Iannaccone / Scarlet Lovejoy</HeaderLogo>
-            <Translator label="Language" />
             <Nav/>
         </HeaderContainer>
     )

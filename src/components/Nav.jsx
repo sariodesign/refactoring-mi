@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
+import NavLinks from '../data/routes/Navigation';
 
 // Create keyframes
 const slideIn = keyframes `
@@ -50,9 +51,11 @@ const NavContainer = styled.div `
             animation: ${slideOut} .25s cubic-bezier(1.000, 0.185, 0.645, 0.805) forwards;
         }
         
-        @media (min-width: 1024) {
+        @media (min-width: 1024px) {
             animation: none;
+            background-color: transparent;
             flex-direction: row;
+            height: auto;
             position: relative;
             transform: none;
             width: auto;
@@ -76,7 +79,8 @@ const NavContainer = styled.div `
             margin: 0
         }
 
-        @media (min-width: 1024) {
+        @media (min-width: 1024px) {
+            color: #222;
             margin-right: 8px;
             margin-bottom: 0;
         }
@@ -93,13 +97,13 @@ const Opener = (props) => {
         background-color: #333;
         border: 0;
         border-radius: 50%;
-        bottom: 32px;
+        bottom: 48px;
         cursor: pointer;
         display: flex;
         height: 40px;
         justify-content: center;
         position: fixed;
-        right: 32px;
+        right: 24px;
         transition: all .25s ease-in-out;
         width: 40px;
         z-index: 2;
@@ -142,6 +146,7 @@ const Opener = (props) => {
 }
 
 const Nav = () => {
+    const lang = window.navigator.language
     const [open, setOpen] = useState(null)
     const [active, activeState] = useState(null)
     const openClose = (e) => {
@@ -149,15 +154,7 @@ const Nav = () => {
         activeState(current => !current)
     }
 
-    const links = [
-        { id: 1, to: '/', label: 'Home' },
-        { id: 2, to: '/bio', label: 'Bio' },
-        { id: 3, to: '/project', label: 'Project' },
-        { id: 4, to: '/performance', label: 'Performance' },
-        { id: 5, to: '/press', label: 'Press' },
-        { id: 6, to: '/contact', label: 'Contact' }
-    ];
-    const routes = links.map((link) =>
+    const routes = NavLinks[lang].map((link) =>
         <Link key={link.id} to={link.to}>{link.label}</Link>
     );
     return (
