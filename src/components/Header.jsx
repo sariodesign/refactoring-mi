@@ -7,7 +7,11 @@ const HeaderContainer = styled.header`
     border-bottom: 1px solid #cccccc;
     display: flex;
     justify-content: space-between;
-    padding: 16px 8px;
+    padding: 16px;
+
+    @media(min-width: 1024px) {
+        padding: 16px 32px;
+    }
 `
 
 const HeaderLogo = styled.div`

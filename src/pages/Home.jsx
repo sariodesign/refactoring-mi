@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import Header from '../components/Header'
 import Translator from '../components/Translator';
+import IntroData from '../data/intro/Intro';
+import Header from '../components/Header'
 import Layout from '../components/Layout'
 import Footer from '../components/Footer'
 
@@ -19,13 +20,15 @@ const Home = (props) => {
         }
     }
 
+    const content = IntroData[currentLanguage].map((item, index) => <p key={index}>{item}</p>);
+
     return (
         <>
             <Header />
             <Layout>
                 <Translator lang={currentLanguage} handler={changeLanguage} />
                 <h1>{title}</h1>
-                {}
+                {content}
             </Layout>
             <Footer/>
         </>

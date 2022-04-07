@@ -14,5 +14,11 @@ const IntroData = {
         'La nuova produzione di Iannaccone non promette né scandali né provocazioni ma tantissime suggestioni. E non deve sembrare una cosa da nulla. Il nostro artista, infatti, nelle sedici opere fotografiche dal titolo, già di per sé indicativo, “Concerto essenziale di terra e di cielo”, insegue, con il suo occhio visionario ma sempre attento alla bellezza cosmica, i luoghi (la valle dell’Engandina) che ispirarono Giovanni Segantini, tra i massimi esponenti del Divisionismo. Lasciatevi trasportare in silenzio dalla magia degli scatti di Iannaccone: un abbraccio fatto di colore abbagliante e di benefico calore.',
         'Nel 2018 ecco che l’artista Scarlet ci regala una nuova entusiasmante provocazione. Sessantasei scatti, suddivisi in gruppi di sei per una serie di undici scene, dal titolo emblematico: “Ri-scoprirsi”. Con questo nuovo progetto il Nostro gioca con il suo spettatore, rivelando le due facce di una realtà distopica, quella densa di inutili orpelli che lentamente scivola nella solitudine del vuoto essenziale. A lui la scelta. Noi propendiamo per la seconda, facendo nostra una frase del pittore tedesco Hans Hofmann: «La capacità di semplificare significa eliminare il superfluo in modo che sia la necessità a parlare»',
         'E poi, come un fulmine a ciel sereno, ecco che arriva nel 2019 l’ultima provocazione: “Zeitgeist”, ovvero la “tragedia di Pompei 2.0”. Ed ecco che Marco/Scarlet si assurge a “Spirito del tempo”, del nostro tempo, e cattura, fissando nelle rughe del tempo infinito, le brutture di oggi: il suicidio, l’avidità, la droga, l’ossessione di essere sempre connessi, il razzismo, l’omofobia, i disturbi alimentari, l’ipocrisia della Chiesa. Non usa mezzi termini il Nostro, e aggiunge drammatica polvere su polvere. Perché la vera eruzione che ci sommergerà tutti è il male interiore.'
+    ],
+    'en-EN': [
+        'One',
+        'Two'
     ]
 }
+
+export default IntroData;
