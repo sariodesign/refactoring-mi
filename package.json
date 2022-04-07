@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",
-    "react-transition-group": "^1.2.1",
+    "gsap": "^3.10.2",
     "vite": "^2.8.0",
     "vite-plugin-fonts": "^0.3.0"
   }

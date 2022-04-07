@@ -1,4 +1,3 @@
-import { CSSTransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 
 const LayoutContainer = styled.div `
@@ -11,14 +10,9 @@ const LayoutContainer = styled.div `
 
 const Layout = (props) => {
     return (
-       <LayoutContainer>
-        <CSSTransitionGroup
-            transitionName="example"
-            transitionEnterTimeout={500}
-            transitionLeaveTimeout={300}>
+        <LayoutContainer>
             {props.children}
-        </CSSTransitionGroup>
-       </LayoutContainer>
+        </LayoutContainer>
     )
 }
 

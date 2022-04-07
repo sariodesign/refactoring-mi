@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { gsap } from "gsap";
 import Translator from '../components/Translator';
 import IntroData from '../data/intro/Intro';
 import Header from '../components/Header'
@@ -20,6 +21,16 @@ const Home = (props) => {
         }
     }
 
+    const contentRef = useRef()
+
+    useEffect(() => {
+        gsap.from(contentRef.current, { 
+            opacity: 0,
+            duration: 2,
+            ease: "power2.out"
+        });
+    });
+
     const content = IntroData[currentLanguage].map((item, index) => <p key={index}>{item}</p>);
 
     return (
@@ -27,8 +38,10 @@ const Home = (props) => {
             <Header />
             <Layout>
                 <Translator lang={currentLanguage} handler={changeLanguage} />
-                <h1>{title}</h1>
-                {content}
+                <div ref={contentRef}>
+                    <h1>{title}</h1>
+                    {content}
+                </div>
             </Layout>
             <Footer/>
         </>
