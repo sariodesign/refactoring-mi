@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from "gsap";
 import Translator from '../components/Translator';
 import IntroData from '../data/intro/Intro';
+import IntroRow from '../components/IntroRow'
 import Header from '../components/Header'
 import Layout from '../components/Layout'
 import Footer from '../components/Footer'
@@ -31,7 +32,7 @@ const Home = (props) => {
         });
     });
 
-    const content = IntroData[currentLanguage].map((item, index) => <p key={index}>{item}</p>);
+    const content = IntroData[currentLanguage].map((item, index) => <IntroRow key={index}>{item}</IntroRow>);
 
     return (
         <>

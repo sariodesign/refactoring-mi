@@ -8,7 +8,6 @@ import BioRow from '../components/BioRow'
 import Footer from '../components/Footer'
 
 const Bio = (props) => {
-    //const [fadeAnimation, setFadeAnimation] = useState(false)
     const [currentLanguage, setLanguage] = useState(props.lang)
     const [title, setTitle] = useState(() => currentLanguage === 'it-IT' ? 'Biografia' : 'Biography');
 
@@ -20,7 +19,6 @@ const Bio = (props) => {
             setLanguage('it-IT')
             setTitle('Biografia')
         }
-        //setFadeAnimation(fadeAnimation => !fadeAnimation)
     }
     
     const contentRef = useRef()
@@ -29,7 +27,8 @@ const Bio = (props) => {
         gsap.from(contentRef.current, { 
             opacity: 0,
             duration: 2,
-            ease: "power2.out"
+            ease: "power2.out",
+            onComplete: update
         });
     });
 

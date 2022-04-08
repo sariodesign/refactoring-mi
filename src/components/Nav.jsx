@@ -88,55 +88,56 @@ const NavContainer = styled.div `
 
 `
 
-const Opener = (props) => {
+const ButtonOpener = styled.button ` {
+    align-items: center;
+    webkit-appearance: none;
+    appeareance: none;
+    background-color: #333;
+    border: 0;
+    border-radius: 50%;
+    bottom: 48px;
+    cursor: pointer;
+    display: flex;
+    height: 48px;
+    justify-content: center;
+    position: fixed;
+    right: 24px;
+    transition: all .25s ease-in-out;
+    width: 48px;
+    z-index: 2;
 
-    const ButtonOpener = styled.button ` {
-        align-items: center;
-        webkit-appearance: none;
-        appeareance: none;
-        background-color: #333;
-        border: 0;
-        border-radius: 50%;
-        bottom: 48px;
-        cursor: pointer;
-        display: flex;
-        height: 40px;
-        justify-content: center;
-        position: fixed;
-        right: 24px;
-        transition: all .25s ease-in-out;
-        width: 40px;
-        z-index: 2;
+    span {
+        background-color: ${props => props.active ? "#333" : "#fff"};
+        height: 2px;
+        pointer-events: none;
+        position: relative;
+        width: 24px;
 
-        span {
-            background-color: ${props => props.active ? "#333" : "#fff"};
-            height: 2px;
-            pointer-events: none;
-            position: relative;
-            width: 32px;
-
-            &:before,
-            &:after {
-                background-color: #fff;
-                content: '';
-                height:100%;
-                width: 100%;
-                position: absolute;
-                top: ${props => props.active ? "0px" : "-6px"};
-                transform: ${props => props.active ? "rotate(45deg)" : "rotate(0)"};
-                left: 0;
-                transition: all .25s ease-in-out;
-            }
-
-            &:after {
-                top: ${props => props.active ? "0px" : "6px"};
-                transform: ${props => props.active ? "rotate(-45deg)" : "rotate(0)"};
-            }
+        &:before,
+        &:after {
+            background-color: #fff;
+            content: '';
+            height:100%;
+            width: 100%;
+            position: absolute;
+            top: ${props => props.active ? "0px" : "-6px"};
+            transform: ${props => props.active ? "rotate(45deg)" : "rotate(0)"};
+            left: 0;
+            transition: all .25s ease-in-out;
         }
 
-        @media (min-width: 1024px) {
-            display: none
-        }`
+        &:after {
+            top: ${props => props.active ? "0px" : "6px"};
+            transform: ${props => props.active ? "rotate(-45deg)" : "rotate(0)"};
+        }
+    }
+
+    @media (min-width: 1024px) {
+        display: none
+    }
+}`
+
+const Opener = (props) => {
 
     return (
         <ButtonOpener onClick={props.handler} active={props.active}>
