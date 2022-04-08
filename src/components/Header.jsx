@@ -10,7 +10,7 @@ const HeaderContainer = styled.header`
     padding: 16px;
 
     @media(min-width: 1024px) {
-        padding: 16px 32px;
+        padding: 32px;
     }
 `
 

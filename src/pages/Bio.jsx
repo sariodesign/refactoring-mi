@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
-import { gsap } from "gsap";
+import { useState } from 'react';
 import Translator from '../components/Translator';
 import BioData from '../data/bio/Bio';
 import Layout from '../components/Layout';
@@ -20,17 +19,6 @@ const Bio = (props) => {
             setTitle('Biografia')
         }
     }
-    
-    const contentRef = useRef()
-
-    useEffect(() => {
-        gsap.from(contentRef.current, { 
-            opacity: 0,
-            duration: 2,
-            ease: "power2.out",
-            onComplete: update
-        });
-    });
 
     const content = BioData[currentLanguage].map((item,index) => 
         <BioRow key={index} year={item.year} month={item.month} paragraphs={item.paragraphs}/>
@@ -41,10 +29,8 @@ const Bio = (props) => {
             <Header />
             <Layout>
                 <Translator lang={currentLanguage} handler={changeLanguage} />
-                <div ref={contentRef}>
-                    <h1>{title}</h1>
-                    {content}
-                </div>
+                <h1>{title}</h1>
+                {content}
             </Layout>
             <Footer/>
         </>

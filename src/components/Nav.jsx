@@ -34,7 +34,7 @@ const NavContainer = styled.div `
         display: flex;
         flex-direction: column;
         height: 100vh;
-        padding: 40px 0;
+        justify-content: center;
         position: fixed;
         right: 0;
         top: 0;
@@ -56,6 +56,7 @@ const NavContainer = styled.div `
             background-color: transparent;
             flex-direction: row;
             height: auto;
+            padding: 0;
             position: relative;
             transform: none;
             width: auto;
@@ -65,6 +66,7 @@ const NavContainer = styled.div `
     a {
         color: #fff;
         font-family: 'Oswald';
+        font-size: 24px;
         font-weight: 700;
         margin-bottom: 8px;
         text-decoration: none;
@@ -81,6 +83,7 @@ const NavContainer = styled.div `
 
         @media (min-width: 1024px) {
             color: #222;
+            font-size: 18px;
             margin-right: 8px;
             margin-bottom: 0;
         }

@@ -4,6 +4,7 @@ const ButtonTranslate = styled.div ` {
     cursor: pointer;
     display: flex;
     justify-content: flex-end;
+    margin-bottom: 16px;
 
     span {
         background-color: #222;

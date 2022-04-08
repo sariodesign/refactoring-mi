@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from "gsap";
 import Translator from '../components/Translator';
+import PageTitle from '../components/PageTitle';
 import IntroData from '../data/intro/Intro';
 import IntroRow from '../components/IntroRow'
 import Header from '../components/Header'
@@ -22,27 +23,15 @@ const Home = (props) => {
         }
     }
 
-    const contentRef = useRef()
-
-    useEffect(() => {
-        gsap.from(contentRef.current, { 
-            opacity: 0,
-            duration: 2,
-            ease: "power2.out"
-        });
-    });
-
-    const content = IntroData[currentLanguage].map((item, index) => <IntroRow key={index}>{item}</IntroRow>);
+    const content = IntroData[currentLanguage].map((item, index) => <IntroRow key={index} text={item}/>);
 
     return (
         <>
             <Header />
             <Layout>
                 <Translator lang={currentLanguage} handler={changeLanguage} />
-                <div ref={contentRef}>
-                    <h1>{title}</h1>
-                    {content}
-                </div>
+                <PageTitle title={title}/>
+                {content}
             </Layout>
             <Footer/>
         </>

@@ -1,3 +1,5 @@
+import React, { useEffect, useRef } from 'react';
+import { gsap } from "gsap";
 import styled from 'styled-components';
 
 const BioRowTitle = styled.h2 `
@@ -29,6 +31,17 @@ const BioRowContent = styled.div `
 `
 
 const BioRow = (props) => {
+    const el = useRef()
+    
+    useEffect(() => {
+        gsap.from(el.current, {
+            clearProps: "opacity", 
+            opacity: 0,
+            y: "10",
+            duration: 1,
+            ease: "power2.out"
+        });
+    });
 
     const year = props.year
     const month = props.month
@@ -39,7 +52,7 @@ const BioRow = (props) => {
     );
     
     return (
-        <BioRowContent>
+        <BioRowContent ref={el}>
             { year && <BioRowTitle>{year}</BioRowTitle> }
             { month && <h3>{month}</h3>}
             { text }
