@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { gsap } from "gsap";
+import React, { useState } from 'react';
 import Translator from '../components/Translator';
 import PageTitle from '../components/PageTitle';
 import IntroData from '../data/intro/Intro';
@@ -27,7 +26,7 @@ const Home = (props) => {
 
     return (
         <>
-            <Header />
+            <Header lang={currentLanguage}/>
             <Layout>
                 <Translator lang={currentLanguage} handler={changeLanguage} />
                 <PageTitle title={title}/>

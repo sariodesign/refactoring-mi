@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import NavLinks from '../data/routes/Navigation';
@@ -81,10 +81,34 @@ const NavContainer = styled.div `
             margin: 0
         }
 
+        &:after {
+            background-color: transparent;
+            content: '';
+            display: block;
+            height: 2px;
+            left: 0;
+            bottom: 0;
+            position: absolute;
+            transition: all .2s ease-in-out;
+            transform: translateY(0);
+            width: 100%;
+        }
+
+        &.active {
+            color: #444;
+            position: relative;
+
+            &:after {
+                background-color: #444;
+                transition: all .2 ease-in-out;
+                transform: translateY(4px);
+            }
+        }
+
         @media (min-width: 1024px) {
             color: #222;
             font-size: 18px;
-            margin-right: 8px;
+            margin-right: 16px;
             margin-bottom: 0;
         }
     }
@@ -149,8 +173,7 @@ const Opener = (props) => {
     )
 }
 
-const Nav = () => {
-    const lang = window.navigator.language
+const Nav = (props) => {
     const [open, setOpen] = useState(null)
     const [active, activeState] = useState(null)
     const openClose = (e) => {
@@ -158,8 +181,10 @@ const Nav = () => {
         activeState(current => !current)
     }
 
-    const routes = NavLinks[lang].map((link) =>
-        <Link key={link.id} to={link.to}>{link.label}</Link>
+    const routes = NavLinks[props.lang].map((link) =>
+        <NavLink key={link.id} to={link.to} >
+            {link.label}
+        </NavLink>
     );
     return (
         <NavContainer>

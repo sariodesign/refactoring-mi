@@ -2,9 +2,11 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 const Contact = () => {
+    const lang = window.navigator.language
+
     return (
         <>
-            <Header />
+            <Header lang={lang}/>
             <h1>Contact</h1>
             <Footer/>
         </>

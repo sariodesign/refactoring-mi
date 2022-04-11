@@ -20,12 +20,12 @@ const HeaderLogo = styled.div`
     font-weight: 700
 `
 
-const Header = () => {
+const Header = (props) => {
 
     return (
         <HeaderContainer>
             <HeaderLogo>Marco Iannaccone / Scarlet Lovejoy</HeaderLogo>
-            <Nav/>
+            <Nav lang={props.lang}/>
         </HeaderContainer>
     )
 }

@@ -26,7 +26,7 @@ const Bio = (props) => {
 
     return (
         <>
-            <Header />
+            <Header lang={currentLanguage}/>
             <Layout>
                 <Translator lang={currentLanguage} handler={changeLanguage} />
                 <h1>{title}</h1>
