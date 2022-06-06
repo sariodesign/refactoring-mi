@@ -106,7 +106,7 @@ const NavContainer = styled.div `
         }
 
         @media (min-width: 1024px) {
-            color: #222;
+            color: #444;
             font-size: 18px;
             margin-right: 16px;
             margin-bottom: 0;
@@ -119,18 +119,18 @@ const ButtonOpener = styled.button ` {
     align-items: center;
     webkit-appearance: none;
     appeareance: none;
-    background-color: #333;
+    background-color: #444;
     border: 0;
     border-radius: 50%;
     bottom: 48px;
     cursor: pointer;
     display: flex;
-    height: 48px;
+    height: 56px;
     justify-content: center;
     position: fixed;
     right: 24px;
     transition: all .25s ease-in-out;
-    width: 48px;
+    width: 56px;
     z-index: 2;
 
     span {

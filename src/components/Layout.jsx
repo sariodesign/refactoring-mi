@@ -1,19 +1,33 @@
 import styled from 'styled-components';
 
-const LayoutContainer = styled.div `
+const Container = styled.div `
     padding: 32px 16px;
 
     @media(min-width: 1024px) {
         padding: 32px;
     }
+
 `
 
-const Layout = (props) => {
+const InnerContainer = styled.div `
+    margin: 0 auto;
+    max-width: 1200px;
+`
+
+const ContentLayout = (props) => {
     return (
-        <LayoutContainer>
+        <InnerContainer>
             {props.children}
-        </LayoutContainer>
+        </InnerContainer>
     )
 }
 
-export default Layout
+const Layout = (props) => {
+    return (
+        <Container>
+            {props.children}
+        </Container>
+    )
+}
+
+export { ContentLayout, Layout }

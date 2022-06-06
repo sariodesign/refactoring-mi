@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import Translator from '../components/Translator';
 import BioData from '../data/bio/Bio';
-import Layout from '../components/Layout';
+import {Layout, ContentLayout} from '../components/Layout'
+import PageTitle from '../components/PageTitle';
 import Header from '../components/Header'
 import BioRow from '../components/BioRow'
 import Footer from '../components/Footer'
@@ -29,8 +30,10 @@ const Bio = (props) => {
             <Header lang={currentLanguage}/>
             <Layout>
                 <Translator lang={currentLanguage} handler={changeLanguage} />
-                <h1>{title}</h1>
-                {content}
+                <ContentLayout>
+                    <PageTitle title={title}/>
+                    {content}
+                </ContentLayout>
             </Layout>
             <Footer/>
         </>

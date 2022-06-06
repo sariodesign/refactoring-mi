@@ -4,7 +4,7 @@ import PageTitle from '../components/PageTitle';
 import IntroData from '../data/intro/Intro';
 import IntroRow from '../components/IntroRow'
 import Header from '../components/Header'
-import Layout from '../components/Layout'
+import {Layout, ContentLayout} from '../components/Layout'
 import Footer from '../components/Footer'
 
 const Home = (props) => {
@@ -29,8 +29,10 @@ const Home = (props) => {
             <Header lang={currentLanguage}/>
             <Layout>
                 <Translator lang={currentLanguage} handler={changeLanguage} />
-                <PageTitle title={title}/>
-                {content}
+                <ContentLayout>
+                    <PageTitle title={title}/>
+                    {content}
+                </ContentLayout>
             </Layout>
             <Footer/>
         </>

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Translator from '../components/Translator';
 import PageTitle from '../components/PageTitle';
 import Header from '../components/Header'
-import Layout from '../components/Layout';
+import {Layout, ContentLayout} from '../components/Layout'
 import ProjectsData from '../data/projects/Projects';
 import Card from '../components/Card';
 import Footer from '../components/Footer'
@@ -13,17 +13,13 @@ const ProjectsContainer = styled.section `
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 16px;
 
-    div {
-        width: 45%;
-        flex: 1 0 auto;
+    a {
+        text-decoration: none;
 
-        @media (min-width: 768px) {
-            width: 30%;
-        }
-
-        @media (min-width: 1440px) {
-            width: 25%; 
+        @media (min-width: 1024px) {
+            width: 25%;
         }
     }
 `
@@ -54,10 +50,12 @@ const Projects = (props) => {
             <Header lang={currentLanguage}/>
             <Layout>
                 <Translator lang={currentLanguage} handler={changeLanguage} />
-                <PageTitle title={title}/>
-                <ProjectsContainer>
-                    {content}
-                </ProjectsContainer>
+                <ContentLayout>
+                    <PageTitle title={title}/>
+                    <ProjectsContainer>
+                        {content}
+                    </ProjectsContainer>
+                </ContentLayout>
             </Layout>
             <Footer/>
         </>
